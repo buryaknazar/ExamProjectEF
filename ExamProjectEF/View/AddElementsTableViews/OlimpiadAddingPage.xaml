@@ -1,0 +1,215 @@
+﻿<UserControl x:Class="ExamProjectEF.View.AddElementsTableViews.OlimpiadAddingPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExamProjectEF.View.AddElementsTableViews"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:viewModelAdditional="clr-namespace:ExamProjectEF.ViewModels.AddElementsTableViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="1050">
+
+    <UserControl.DataContext>
+        <viewModelAdditional:OlimpiadAddingViewModel></viewModelAdditional:OlimpiadAddingViewModel>
+    </UserControl.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DataGrid Style="{DynamicResource DataGridStyle}" CellStyle="{DynamicResource DataGridCellStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle}" ColumnWidth="*"
+                  Background="#200F53"
+                  BorderThickness="0"
+                  x:Name="InfoDataGrid"
+                  Grid.Row="0"
+                  ItemsSource="{Binding Countries}"
+                  SelectedItem="{Binding SelectedItem}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" IsReadOnly="True" Header="Country"/>
+                <DataGridTextColumn Binding="{Binding City}" IsReadOnly="True" Header="City"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="2"
+              Height="120">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0"
+                        Background="{StaticResource panelActiveColor}">
+                <TextBlock Text="Name"
+                               Foreground="LightGray"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Cascadia Code"
+                               Margin="20,35,0,0">
+                </TextBlock>
+
+                <TextBox x:Name="txtName"
+                             Text="{Binding ItemToAdd.Name, UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="14"
+                             FontWeight="Medium"
+                             FontFamily="Cascadia Code"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="20,15,10,0"
+                             Padding="20,0,0,0">
+
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user-icon.png"
+                                        Stretch="None"
+                                        AlignmentX="Left">
+                        </ImageBrush>
+                    </TextBox.Background>
+                </TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1"
+                        Background="{StaticResource panelActiveColor}">
+                <TextBlock Text="Season"
+                               Foreground="LightGray"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Cascadia Code"
+                               Margin="20,35,0,0">
+                </TextBlock>
+
+                <TextBox x:Name="txtSeason"
+                             Text="{Binding ItemToAdd.Season, UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="14"
+                             FontWeight="Medium"
+                             FontFamily="Cascadia Code"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="20,15,10,0"
+                             Padding="20,0,0,0">
+
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user-icon.png"
+                                        Stretch="None"
+                                        AlignmentX="Left">
+                        </ImageBrush>
+                    </TextBox.Background>
+                </TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2"
+                        Background="{StaticResource panelActiveColor}">
+                <TextBlock Text="EventDate"
+                               Foreground="LightGray"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Cascadia Code"
+                               Margin="20,35,0,0">
+                </TextBlock>
+
+                <TextBox x:Name="txtDate"
+                             Text="{Binding ItemToAdd.EventDate, UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="14"
+                             FontWeight="Medium"
+                             FontFamily="Cascadia Code"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="20,15,10,0"
+                             Padding="20,0,0,0">
+
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user-icon.png"
+                                        Stretch="None"
+                                        AlignmentX="Left">
+                        </ImageBrush>
+                    </TextBox.Background>
+                </TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Column="3"
+                        Background="{StaticResource panelActiveColor}">
+                <TextBlock Text="CountOfMembers"
+                               Foreground="LightGray"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Cascadia Code"
+                               Margin="20,35,0,0">
+                </TextBlock>
+
+                <TextBox x:Name="txtMembers"
+                             Text="{Binding ItemToAdd.CountOfMembers, UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="14"
+                             FontWeight="Medium"
+                             FontFamily="Cascadia Code"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="20,15,10,0"
+                             Padding="20,0,0,0">
+
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user-icon.png"
+                                        Stretch="None"
+                                        AlignmentX="Left">
+                        </ImageBrush>
+                    </TextBox.Background>
+                </TextBox>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Background="{StaticResource panelActiveColor}">
+            <Button Content="Add"                            
+                            FontSize="14"
+                            FontFamily="Cascadia Code"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                            Margin="0,0,0,0"
+                    VerticalAlignment="Center"
+                    Width="250"
+                    Command="{Binding AddCollectionItemCommand}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF7ABF7A"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFA2E09D"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
